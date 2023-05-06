@@ -1,0 +1,37 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
+fi
+
+unset rc
+
+# Custom PS1 prompt
+# Set colors
+username_color='\[\033[01;35m\]'
+hostname_color='\[\033[01;32m\]'
+filepath_color='\[\033[01;34m\]'
+reset_color='\[\033[0m\]'
+
+# Set prompt format
+PS1="${username_color}\u${reset_color}@${hostname_color}\h${reset_color}:${filepath_color}\w${reset_color}\$ "
