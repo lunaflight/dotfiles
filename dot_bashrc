@@ -35,3 +35,12 @@ reset_color='\[\033[0m\]'
 
 # Set prompt format
 PS1="${username_color}\u${reset_color}@${hostname_color}\h${reset_color}:${filepath_color}\w${reset_color}\$ "
+
+# Set power-related aliases
+alias gps=gnome-power-statistics
+
+ptr() {
+    local temp_file="$(mktemp -u /tmp/powertop_report.XXXXXX.html)"
+    sudo powertop --html="$temp_file"
+    xdg-open "$temp_file"
+}
