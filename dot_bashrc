@@ -42,6 +42,13 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+
+# My Stuff
+alias vim=nvim
+alias nv=nvim
+
+alias ac='ani-cli -v'
 
 # Set power-related aliases
 alias gps=gnome-power-statistics
