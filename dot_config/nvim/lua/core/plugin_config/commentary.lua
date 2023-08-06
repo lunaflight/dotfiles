@@ -1,0 +1,3 @@
+-- This file intentionally left blank, as vim-commentary doesn't need any Lua
+-- configuration by default. Any filetype-specific configuration can be added
+-- here as needed.

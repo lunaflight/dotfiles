@@ -1,7 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
   -- https://github.com/williamboman/mason-lspconfig.nvim
-  ensure_installed = { "clangd", "lua_ls", "jdtls", "texlab" }
+  ensure_installed = { "clangd", "cssls", "lua_ls", "html", "jdtls", "pylsp", "texlab" }
 })
 
 local on_attach = function(_, _)
@@ -17,6 +17,9 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require("lspconfig").clangd.setup { on_attach = on_attach, capabilities = capabilities }
+require("lspconfig").cssls.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").lua_ls.setup { on_attach = on_attach, capabilities = capabilities }
+require("lspconfig").html.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").jdtls.setup { on_attach = on_attach, capabilities = capabilities }
+require("lspconfig").pylsp.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").texlab.setup { on_attach = on_attach, capabilities = capabilities }

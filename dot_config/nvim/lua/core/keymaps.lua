@@ -1,8 +1,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.api.nvim_set_keymap('i', '<Tab>', '<C-N>', {})
-vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-P>', {})
+-- vim.api.nvim_set_keymap('i', '<Tab>', '<C-N>', {})
+-- vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-P>', {})
+
+vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', {})
 
 -- A quick way to increment or decrement the number under the cursor
 vim.api.nvim_set_keymap('n', '+', '<C-A>', {})
@@ -52,8 +54,5 @@ vim.api.nvim_set_keymap('n', '<F9>', ':w <bar> !javac -Xlint:rawtypes -Xlint:unc
 
 -- This paste function pastes from the yank register.
 vim.api.nvim_set_keymap('n', '<C-P>', '"0p', {})
-
-
-
 
 vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', {noremap = true, silent = true})

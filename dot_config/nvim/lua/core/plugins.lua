@@ -13,12 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   'wbthomason/packer.nvim',
-  'ellisonleao/gruvbox.nvim',
+  { 'ellisonleao/gruvbox.nvim', priority = 1000 },
   'rebelot/kanagawa.nvim',
   {
     'dracula/vim',
     lazy = false,
   },
+  'navarasu/onedark.nvim',
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
@@ -55,7 +56,10 @@ local plugins = {
   },
 
   "ms-jpq/coq_nvim",
-  "ms-jpq/coq.artifacts"
+  "ms-jpq/coq.artifacts",
+
+  "iamcco/markdown-preview.nvim",
+  "lukas-reineke/indent-blankline.nvim"
 }
 
 local opts = {}
