@@ -25,6 +25,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "e54c8873ef964c730af451fedd4490166d335e3a" },
   "nvim-web-devicons": { "branch": "master", "commit": "2a125024a137677930efcfdf720f205504c97268" },
   "onedark.nvim": { "branch": "master", "commit": "cae5fdf035ee92c407a29ee2ccfcff503d2be7f1" },
+  "orgmode": { "branch": "master", "commit": "6b6eb8eabbed4d95568fd1f5374a3dff7ed51a3b" },
   "packer.nvim": { "branch": "master", "commit": "1d0cf98a561f7fd654c970c49f917d74fafe1530" },
   "plenary.nvim": { "branch": "master", "commit": "499e0743cf5e8075cd32af68baa3946a1c76adf1" },
   "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" },

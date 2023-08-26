@@ -55,11 +55,16 @@ local plugins = {
 	  dependencies = { {'nvim-lua/plenary.nvim'} }
   },
 
+  -- Probably useless?
   "ms-jpq/coq_nvim",
   "ms-jpq/coq.artifacts",
 
+  -- Markdown
   "iamcco/markdown-preview.nvim",
-  "lukas-reineke/indent-blankline.nvim"
+  -- Rainbow indentations on the left
+  "lukas-reineke/indent-blankline.nvim",
+  -- Orgmode
+  "nvim-orgmode/orgmode",
 }
 
 local opts = {}

@@ -53,8 +53,6 @@ alias ............='cd ../../../../../../../../../../..'
 alias vim=nvim
 alias nv=nvim
 
-alias ac='ani-cli -v'
-
 # Set power-related aliases
 alias gps=gnome-power-statistics
 
@@ -65,5 +63,10 @@ ptr() {
 }
 
 # Other aliases
-alias op=xdg-open
+alias op='xdg-open 2>/dev/null'
 complete -F _filedir_xspec op
+alias fop='op "$(fzf)"'
+fcd() {
+    local dir
+    dir="$(find * -type d 2> /dev/null | fzf)" && cd "$dir"
+}
