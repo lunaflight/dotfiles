@@ -51,7 +51,7 @@ local plugins = {
   "glepnir/lspsaga.nvim",
   {
 	  'nvim-telescope/telescope.nvim',
-	  tag = '0.1.0',
+	  tag = '0.1.5',
 	  dependencies = { {'nvim-lua/plenary.nvim'} }
   },
 
@@ -62,9 +62,7 @@ local plugins = {
   -- Markdown
   "iamcco/markdown-preview.nvim",
   -- Rainbow indentations on the left
-  "lukas-reineke/indent-blankline.nvim",
-  -- Orgmode
-  "nvim-orgmode/orgmode",
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 }
 
 local opts = {}

@@ -50,7 +50,6 @@ alias ...........='cd ../../../../../../../../../..'
 alias ............='cd ../../../../../../../../../../..'
 
 # My Stuff
-alias vim=nvim
 alias nv=nvim
 
 # Set power-related aliases
@@ -70,3 +69,51 @@ fcd() {
     local dir
     dir="$(find * -type d 2> /dev/null | fzf)" && cd "$dir"
 }
+
+fmv() {
+  local files=()
+  local dest_dir
+
+  # If no file arguments provided, show an error message and return
+  if [ "$#" -eq 0 ]; then
+    echo "No files specified for moving. Usage: fmv file1 file2 file3 ..."
+    return 1
+  fi
+
+  # Collect file arguments
+  for file in "$@"; do
+    if [ -f "$file" ]; then
+      files+=("$file")
+    else
+      echo "File '$file' not found."
+    fi
+  done
+
+  # Use fzf to select the destination directory from ~
+  dest_dir=$(find "$HOME" -type d -not -path '*/\.*' 2>/dev/null | fzf)
+
+  if [ -z "$dest_dir" ]; then
+    echo "No destination directory selected. Aborting."
+    return 1
+  fi
+
+  # Move selected files to the destination directory
+  for file in "${files[@]}"; do
+    mv "$file" "$dest_dir"
+  done
+
+  cd "$dest_dir"
+}
+
+alias "c=xclip"
+alias "v=xclip -o"
+
+alias j17='sudo alternatives --set java /usr/lib/jvm/java-17-openjdk-17.0.8.0.7-1.fc38.x86_64/bin/java && sudo alternatives --set javac /usr/lib/jvm/java-17-openjdk-17.0.8.0.7-1.fc38.x86_64/bin/javac'
+alias j11='sudo alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.20.0.8-1.fc38.x86_64/bin/java && sudo alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.20.0.8-1.fc38.x86_64/bin/javac'
+
+alias back="git checkout master"
+alias new="git checkout master; git checkout -b"
+alias gp="git push -u origin HEAD"
+alias gc="git commit -am"
+alias gl="git lg"
+alias gs="git status"

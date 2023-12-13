@@ -37,6 +37,9 @@ map('n', '<F12>', ':call ToggleHL()<CR>', {silent = true})
 -- F1 reindents the whole file and keeps your cursor where it was.
 map('n', '<F1>', 'gg=G<C-o>', {})
 
+-- F2 gets the character count of the current file.
+map('n', '<F2>', ':!wc -m %<CR>', {})
+
 -- F10 quicksaves and compiles your current file.
 -- TODO: Use nvim plugin
 map('n', '<F9>', ':w <bar> !javac -Xlint:rawtypes -Xlint:unchecked %<CR>', {})

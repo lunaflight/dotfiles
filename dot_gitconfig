@@ -1,6 +1,6 @@
 [user]
 	email = e0958283@u.nus.edu
-	name = et-irl
+	name = lunaflight
 [core]
 	editor = nvim
 	autocrlf = false
