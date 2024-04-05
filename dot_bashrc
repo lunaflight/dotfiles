@@ -36,24 +36,21 @@ reset_color='\[\033[0m\]'
 # Set prompt format
 PS1="${username_color}\u${reset_color}@${hostname_color}\h${reset_color}:${filepath_color}\w${reset_color}\$ "
 
+alias cd='z'
+
 # Navigating up the directory tree
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
-alias ........='cd ../../../../../../..'
-alias .........='cd ../../../../../../../..'
-alias ..........='cd ../../../../../../../../..'
-alias ...........='cd ../../../../../../../../../..'
-alias ............='cd ../../../../../../../../../../..'
+x=".."
+y=".."
+alias $x="cd $y"
+for i in {1..100}; do x="${x}."; y="${y}/.."; alias $x="cd $y"; done
 
 # My Stuff
 alias nv=nvim
-
-# Set power-related aliases
-alias gps=gnome-power-statistics
+alias rmswp='rm ~/.local/state/nvim/swap/*.swp'
+rmmac() {
+    find . -type f -name ".DS_Store" -delete
+    find . -type d -name "__MACOSX" -exec rm -rf {} +
+}
 
 ptr() {
     local temp_file="$(mktemp -u /tmp/powertop_report.XXXXXX.html)"
@@ -105,15 +102,40 @@ fmv() {
   cd "$dest_dir"
 }
 
-alias "c=xclip"
-alias "v=xclip -o"
+socprint() {
+    FILE=$2
+    TMPNAME="~/__TO_PRINT"
+    scp "$FILE" stu:$TMPNAME &&
+    ssh stu "lpr -Ppsts $TMPNAME && rm $TMPNAME"
+}
+complete -F _filedir_xspec psts
 
-alias j17='sudo alternatives --set java /usr/lib/jvm/java-17-openjdk-17.0.8.0.7-1.fc38.x86_64/bin/java && sudo alternatives --set javac /usr/lib/jvm/java-17-openjdk-17.0.8.0.7-1.fc38.x86_64/bin/javac'
-alias j11='sudo alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.20.0.8-1.fc38.x86_64/bin/java && sudo alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.20.0.8-1.fc38.x86_64/bin/javac'
-
-alias back="git checkout master"
-alias new="git checkout master; git checkout -b"
-alias gp="git push -u origin HEAD"
-alias gc="git commit -am"
+alias back="git checkout main"
+alias new="git checkout main; git checkout -b"
+alias ga="git add"
+alias gc="git commit -m"
+alias gca="git commit --amend --no-edit"
+alias gco="git checkout"
+alias gd="git diff"
 alias gl="git lg"
+alias gm="git merge"
+alias gps="git push -u origin HEAD"
+alias gpl="git pull"
 alias gs="git status"
+getpr() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: getpr ID"
+        return 1
+    fi
+
+    ID=$1
+    BRANCHNAME="pr-$ID"
+
+    git fetch origin "pull/$ID/head:$BRANCHNAME"
+    echo "Fetched pull request $ID and created branch $BRANCHNAME"
+}
+
+eval "$(zoxide init bash)"
+
+alias dwr="dnf repoquery --whatrequires"
+alias dwd="dnf repoquery --whatdepends"

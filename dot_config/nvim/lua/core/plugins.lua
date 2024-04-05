@@ -46,8 +46,8 @@ local plugins = {
   "rafamadriz/friendly-snippets",
   "github/copilot.vim",
   "williamboman/mason.nvim",
-  "neovim/nvim-lspconfig",
   "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
   "glepnir/lspsaga.nvim",
   {
 	  'nvim-telescope/telescope.nvim',

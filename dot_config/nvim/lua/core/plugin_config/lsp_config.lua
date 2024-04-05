@@ -1,7 +1,20 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
   -- https://github.com/williamboman/mason-lspconfig.nvim
-  ensure_installed = { "bashls", "clangd", "cssls", "gradle_ls", "html", "jdtls", "lua_ls", "pylsp", "sqlls", "texlab" }
+  ensure_installed = {
+    "bashls",
+    "clangd",
+    "cssls",
+    "gradle_ls",
+    "html",
+    "jdtls",
+    "lua_ls",
+    "ocamllsp",
+    "omnisharp",
+    "pylsp",
+    "sqlls",
+    "texlab"
+  }
 })
 
 local on_attach = function(_, _)
@@ -23,6 +36,18 @@ require("lspconfig").lua_ls.setup { on_attach = on_attach, capabilities = capabi
 require("lspconfig").gradle_ls.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").html.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").jdtls.setup { on_attach = on_attach, capabilities = capabilities }
-require("lspconfig").pylsp.setup { on_attach = on_attach, capabilities = capabilities }
+require("lspconfig").ocamllsp.setup { on_attach = on_attach, capabilities = capabilities }
+require("lspconfig").omnisharp.setup { on_attach = on_attach, capabilities = capabilities }
+require("lspconfig").pylsp.setup {
+  pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 100
+        }
+      }
+    },
+  on_attach = on_attach, capabilities = capabilities
+}
 require("lspconfig").sqlls.setup { on_attach = on_attach, capabilities = capabilities }
 require("lspconfig").texlab.setup { on_attach = on_attach, capabilities = capabilities }

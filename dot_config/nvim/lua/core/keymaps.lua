@@ -38,14 +38,7 @@ map('n', '<F12>', ':call ToggleHL()<CR>', {silent = true})
 map('n', '<F1>', 'gg=G<C-o>', {})
 
 -- F2 gets the character count of the current file.
-map('n', '<F2>', ':!wc -m %<CR>', {})
-
--- F10 quicksaves and compiles your current file.
--- TODO: Use nvim plugin
-map('n', '<F9>', ':w <bar> !javac -Xlint:rawtypes -Xlint:unchecked %<CR>', {})
-
--- This paste function pastes from the yank register.
-map('n', '<C-P>', '"0p', {})
+map('n', '<F2>', ':!wc --words --chars %<CR>', {})
 
 -- Open file directory
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
