@@ -20,6 +20,7 @@ require'nvim-treesitter.configs'.setup {
     "lua",
     "make",
     "markdown",
+    "ocaml",
     "org",
     "python",
     "vim",
