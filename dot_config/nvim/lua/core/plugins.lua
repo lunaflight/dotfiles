@@ -62,7 +62,9 @@ local plugins = {
   -- Markdown
   "iamcco/markdown-preview.nvim",
   -- Rainbow indentations on the left
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
+  "fladson/vim-kitty"
 }
 
 local opts = {}
