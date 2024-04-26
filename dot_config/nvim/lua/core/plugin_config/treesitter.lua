@@ -1,5 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
+  -- https://github.com/nvim-treesitter/nvim-treesitter
   ensure_installed = {
     "bash",
     "c",
@@ -23,6 +24,7 @@ require'nvim-treesitter.configs'.setup {
     "ocaml",
     "org",
     "python",
+    "toml",
     "vim",
     "yaml",
   },

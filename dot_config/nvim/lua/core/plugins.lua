@@ -33,9 +33,9 @@ local plugins = {
   'tpope/vim-commentary',
 
   -- debugging
-  'mfussenegger/nvim-dap',
-  'rcarriga/nvim-dap-ui',
-  'simrat39/rust-tools.nvim',
+  -- 'mfussenegger/nvim-dap',
+  -- 'rcarriga/nvim-dap-ui',
+  -- 'simrat39/rust-tools.nvim',
 
   -- completion
   'hrsh7th/nvim-cmp',
@@ -44,7 +44,7 @@ local plugins = {
   'L3MON4D3/LuaSnip',
   'saadparwaiz1/cmp_luasnip',
   "rafamadriz/friendly-snippets",
-  "github/copilot.vim",
+  -- "github/copilot.vim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
@@ -56,8 +56,8 @@ local plugins = {
   },
 
   -- Probably useless?
-  "ms-jpq/coq_nvim",
-  "ms-jpq/coq.artifacts",
+  -- "ms-jpq/coq_nvim",
+  -- "ms-jpq/coq.artifacts",
 
   -- Markdown
   "iamcco/markdown-preview.nvim",
