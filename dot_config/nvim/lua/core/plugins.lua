@@ -13,19 +13,19 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   'wbthomason/packer.nvim',
-  { 'ellisonleao/gruvbox.nvim', priority = 1000 },
-  'rebelot/kanagawa.nvim',
-  {
-    'dracula/vim',
-    lazy = false,
-  },
-  'navarasu/onedark.nvim',
+  -- { 'ellisonleao/gruvbox.nvim', priority = 1000 },
+  -- 'rebelot/kanagawa.nvim',
+  -- {
+  --   'dracula/vim',
+  --   lazy = false,
+  -- },
+  -- 'navarasu/onedark.nvim',
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
   'nvim-treesitter/nvim-treesitter',
   'bluz71/vim-nightfly-colors',
-  'vim-test/vim-test',
+  -- 'vim-test/vim-test',
   'lewis6991/gitsigns.nvim',
   'preservim/vimux',
   'christoomey/vim-tmux-navigator',
