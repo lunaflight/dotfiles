@@ -11,3 +11,10 @@ vim.opt.relativenumber = true
 vim.opt.showcmd = true
 vim.opt.ruler = true
 vim.opt.scrolloff = 5
+
+-- Add printing for unprintable characters
+-- vim.opt.list = true
+-- vim.opt.listchars = {
+--     space = '⋅',
+--     eol = "↴"
+-- }

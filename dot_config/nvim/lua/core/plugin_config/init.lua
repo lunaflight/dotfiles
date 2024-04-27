@@ -1,4 +1,4 @@
--- require("core.plugin_config.blankline")
+require("core.plugin_config.blankline")
 require("core.plugin_config.colorscheme")
 require("core.plugin_config.commentary")
 require("core.plugin_config.completions")
