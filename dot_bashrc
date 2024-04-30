@@ -145,6 +145,11 @@ chezupdate() {
     ORIG=$(pwd)
     chezmoi re-add
     cd $(chezmoi source-path)
-    git diff && git add . && git commit -m "Automated commit at $(date)" && git push -u origin HEAD
+    git diff
+    echo "confirm? (y/n)"
+    read answer
+    if [ "$answer" != "${answer#[Yy]}" ]; then 
+        git add . && git commit -m "Automated commit at $(date)" && git push -u origin HEAD
+    fi
     cd $ORIG
 }
