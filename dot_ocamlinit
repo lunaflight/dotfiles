@@ -4,3 +4,39 @@
 #use "topfind";;
 (* ## end of OPAM user-setup addition for ocamltop / base ## keep this line *)
 open Base;;
+
+#require "lambda-term"
+
+(* REF: https://gist.github.com/hcarty/b2dab5324d0d4344d771 *)
+let toggle_implicit_double_semicolon =
+  let implicit_semis_enabled = ref false in
+  let parse_fn_stock = UTop.parse_toplevel_phrase.contents in
+  let parse_fn_dynamic code error_flag =
+    parse_fn_stock
+      (if implicit_semis_enabled.contents then code ^ ";;" else code)
+      error_flag
+  in
+  UTop.parse_toplevel_phrase := parse_fn_dynamic ;
+  fun () ->
+    implicit_semis_enabled := not implicit_semis_enabled.contents ;
+    UTop.prompt :=
+      React.S.const
+        LTerm_text.(
+          eval
+            (* REF: https://ocaml-community.github.io/lambda-term/3.1.0/lambda-term/LTerm_text/index.html#markup-strings *)
+            [ B_bold true
+            ; B_fg LTerm_style.white
+            ; S ("\n" ^ if implicit_semis_enabled.contents then ">" else ">>>")
+            ; E_fg
+            ; E_bold
+            ; S " "
+            ]
+        )
+
+let () =
+  (* On by default *)
+  toggle_implicit_double_semicolon () ;
+  let open LTerm_read_line in
+  bind
+    [ { control = false; meta = false; shift = false; code = F1 } ]
+    [ Edit (Custom toggle_implicit_double_semicolon); Break ]
