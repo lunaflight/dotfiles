@@ -44,4 +44,7 @@ map('n', '<F2>', ':!wc --words --chars %<CR>', {})
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 
 -- Open links under the cursor
-map("", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>', {})
+map('n', "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>', {})
+
+-- <C-w> isn't used often, so we remap it to the most common use case
+map('n', '<C-w>', '<C-w><C-w>', {noremap = true})
