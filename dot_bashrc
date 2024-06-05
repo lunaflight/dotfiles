@@ -36,6 +36,9 @@ reset_color='\[\033[0m\]'
 # Set prompt format
 PS1="${username_color}\u${reset_color}@${hostname_color}\h${reset_color}:${filepath_color}\w${reset_color}\$ "
 
+alias brc='nv ~/.bashrc && source ~/.bashrc'
+alias sbrc='source ~/.bashrc'
+
 # Navigating up the directory tree
 x=".."
 y=".."
@@ -147,7 +150,9 @@ chezupdate() {
     echo "confirm? (y/n)"
     read answer
     if [ "$answer" != "${answer#[Yy]}" ]; then 
-        git add . && git commit -m "Automated commit at $(date)" && git push -u origin HEAD
+        git add . && git commit -m "$(git diff --staged --name-only | awk -F '|' '{print $1}' | xargs -rd '\n' basename -a | awk '{print}' ORS=' ')" && git push -u origin HEAD
     fi
     cd $ORIG
 }
+
+alias fz="fzf --preview-window=up,20%,wrap --preview='basename {}' --hscroll-off=180 --cycle --height=~25%"
