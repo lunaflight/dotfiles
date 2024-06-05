@@ -150,7 +150,7 @@ chezupdate() {
     echo "confirm? (y/n)"
     read answer
     if [ "$answer" != "${answer#[Yy]}" ]; then 
-        git add . && git commit -m "$(git diff --staged --name-only | xargs -rd '\n' basename -a | awk '{print}' ORS=' ')" && git push -u origin HEAD
+        git add . && git commit -m "$(git diff --staged --name-only | xargs -rd '\n' basename -a | sed 's/dot_//g' | awk '{print}' ORS=' ')" && git push -u origin HEAD
     fi
     cd $ORIG
 }
